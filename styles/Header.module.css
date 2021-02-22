@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  box-shadow: 0px 2px 5px rgba(0,0,0,.1);
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--light-text);
+}
+
+.toogleText {
+  font-weight: var(--f-mid);
+  cursor: pointer;
+}
+
