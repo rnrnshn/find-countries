@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Header from '../components/Header'
 import Image from 'next/image'
+import Link from 'next/link';
 
 export async function getStaticProps() {
   const url = 'https://restcountries.eu/rest/v2/all';
@@ -41,29 +42,33 @@ export default function Home({ countries }) {
         </section>
         <section className={styles.countriesContainer}>
           {countries.slice(0, 8).map(country => (
-            <aside className={styles.countryItem} key={country.numericCode}>
-              <div className={styles.countryFlag}>
-                <Image
-                  src={country.flag}
-                  width={237}
-                  height={144}
-                />
-              </div>
-              <div className={styles.countryInfo}>
-                <h4 className={styles.countryName}>
-                  {country.name}
-                </h4>
-                <p className={styles.countryPopulation}>
-                  <span>Population: </span>{country.population}
-                </p>
-                <p className={styles.countryRegion}>
-                  <span>Region: </span>{country.region}
-                </p>
-                <p className={styles.countryCapital}>
-                  <span>Capital: </span>{country.capital}
-                </p>
-              </div>
-            </aside>
+            <Link href={`/${country.name}`}>
+              <a>
+                <aside className={styles.countryItem} key={country.numericCode}>
+                  <div className={styles.countryFlag}>
+                    <Image
+                      src={country.flag}
+                      width={237}
+                      height={144}
+                    />
+                  </div>
+                  <div className={styles.countryInfo}>
+                    <h4 className={styles.countryName}>
+                      {country.name}
+                    </h4>
+                    <p className={styles.countryPopulation}>
+                      <span>Population: </span>{country.population}
+                    </p>
+                    <p className={styles.countryRegion}>
+                      <span>Region: </span>{country.region}
+                    </p>
+                    <p className={styles.countryCapital}>
+                      <span>Capital: </span>{country.capital}
+                    </p>
+                  </div>
+                </aside>
+              </a>
+            </Link>
           ))}
         </section>
       </main>

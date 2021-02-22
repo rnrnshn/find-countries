@@ -27,3 +27,8 @@
 body {
   font-family: 'Nunito Sans', sans-serif;
 }
+
+a {
+  color: var(--light-text);
+  text-decoration: none;
+}
